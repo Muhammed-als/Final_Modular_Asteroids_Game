@@ -8,10 +8,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		LwjglApplicationConfiguration cfg =
-			new LwjglApplicationConfiguration();
+			new LwjglApplicationConfiguration(	);
 		cfg.title = "Asteroids";
-		cfg.width = 500;
-		cfg.height = 400;
+		cfg.width = 600;
+		cfg.height = 500;
 		cfg.useGL30 = false;
 		cfg.resizable = false;
 		

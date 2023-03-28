@@ -118,4 +118,19 @@ public class MovingPart
         positionPart.setRadians(radians);
     }
 
+    public float getDx() {
+        return dx;
+    }
+
+    public boolean isLeft() {
+        return left;
+    }
+
+    public float getDy() {
+        return dy;
+    }
+
+    public float getRotationSpeed() {
+        return rotationSpeed;
+    }
 }
