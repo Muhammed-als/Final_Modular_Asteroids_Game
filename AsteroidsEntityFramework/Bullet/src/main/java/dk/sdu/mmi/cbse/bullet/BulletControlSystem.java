@@ -21,24 +21,22 @@ import static java.lang.Math.sin;
 @SuppressWarnings("unchecked")
 public class BulletControlSystem implements IEntityProcessingService {
     private boolean showBullet;
-    private boolean isActivated;
-//    private float x;
-//    private float y;
     int bulletDistanceTraveled = 0;
     @Override
     public void process(GameData gameData, World world) {
         Optional<Entity> player = world.getEntities(Player.class).stream().findFirst();
         Optional<Entity> bullet = world.getEntities(Bullet.class).stream().findFirst();
-        LifePart lifePart = bullet.get().getPart(LifePart.class);
+        LifePart bulletLifePart = bullet.get().getPart(LifePart.class);
+
         if(player.isPresent()) {
             PositionPart bulletPosition = bullet.get().getPart(PositionPart.class);
             MovingPart bulletmovingPart = bullet.get().getPart(MovingPart.class);
             PositionPart playerPosition = player.get().getPart(PositionPart.class);
             float x = playerPosition.getX();
             float y = playerPosition.getY();
-            if(lifePart.isIsHit()){
+            if(bulletLifePart.isIsHit()){
                 showBullet = false;
-                lifePart.setIsHit(false);
+                bulletLifePart.setIsHit(false);
                 bulletDistanceTraveled = 0;
             }
             if((gameData.getKeys().isPressed(GameKeys.SPACE) && bulletDistanceTraveled == 0)){

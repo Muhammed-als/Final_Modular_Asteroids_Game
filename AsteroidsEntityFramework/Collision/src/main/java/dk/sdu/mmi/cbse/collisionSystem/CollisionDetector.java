@@ -43,6 +43,8 @@ public class CollisionDetector implements IPostEntityProcessingService {
 //                                entityLife.setLife(entityLife.getLife()-1);
                                 entityLife.setIsHit(true);
 
+                                entityLife.setDamageCount(entityLife.getDamageCount()+1);
+
                             }
                             if(entity.getClass().equals(Asteroid.class) && collisionDetection.getClass().equals(Bullet.class)){
 //                                entityLife.setLife(entityLife.getLife()-1);

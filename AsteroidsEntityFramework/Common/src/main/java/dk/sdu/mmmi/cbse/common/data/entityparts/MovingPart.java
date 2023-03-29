@@ -33,6 +33,9 @@ public class MovingPart
         this.rotationSpeed = rotationSpeed;
     }
 
+
+
+
     public void setDeceleration(float deceleration) {
         this.deceleration = deceleration;
     }
@@ -132,5 +135,17 @@ public class MovingPart
 
     public float getRotationSpeed() {
         return rotationSpeed;
+    }
+
+    public float getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public float getAcceleration() {
+        return acceleration;
+    }
+
+    public float getDeceleration() {
+        return deceleration;
     }
 }

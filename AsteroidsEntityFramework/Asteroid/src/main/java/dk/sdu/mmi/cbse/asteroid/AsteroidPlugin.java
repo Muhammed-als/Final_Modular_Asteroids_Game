@@ -13,6 +13,7 @@ import java.util.Random;
 public class AsteroidPlugin implements IGamePluginService {
     private Entity asteroid;
     private Random random;
+    float maxSpeed;
     public AsteroidPlugin(){
         random = new Random();
     }
@@ -52,7 +53,7 @@ public class AsteroidPlugin implements IGamePluginService {
         float rotationSpeed = 5;
         float x = random.nextFloat() * gameData.getDisplayWidth();
         float y = random.nextFloat() * gameData.getDisplayHeight();
-        float radians = 3.1415f / 2;
+        float radians = random.nextFloat(3.1415f /5,3.1415f / 2);
         Entity asteroids = new Asteroid();
         asteroids.setRadius(30);
         asteroids.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));

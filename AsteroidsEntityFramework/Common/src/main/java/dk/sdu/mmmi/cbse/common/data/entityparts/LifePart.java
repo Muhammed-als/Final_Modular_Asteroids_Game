@@ -16,6 +16,8 @@ public class LifePart implements EntityPart {
     private boolean dead;
     private int life;
     private boolean isHit = false;
+    private int entitySize;
+    private int damageCount = 0;
     public LifePart(int life) {
         this.life = life;
     }
@@ -38,6 +40,23 @@ public class LifePart implements EntityPart {
 
     public boolean isDead() {
         return dead;
+    }
+
+
+    public int getEntitySize() {
+        return entitySize;
+    }
+
+    public void setEntitySize(int entitySize) {
+        this.entitySize = entitySize;
+    }
+
+    public int getDamageCount() {
+        return damageCount;
+    }
+
+    public void setDamageCount(int damageCount) {
+        this.damageCount = damageCount;
     }
 
     @Override
