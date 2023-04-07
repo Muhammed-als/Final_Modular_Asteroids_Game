@@ -5,7 +5,7 @@ import java.util.*;
 
 public class SPILocater {
     @SuppressWarnings("rawtypes")
-    private static final Map<Class, ServiceLoader> loadermap = new HashMap<Class, ServiceLoader>();
+    private static final Map<Class, ServiceLoader> loadermap = new HashMap<>();
 
     private SPILocater() {
     }
@@ -22,7 +22,7 @@ public class SPILocater {
             printStatement = true;
         }
 
-        List<T> list = new ArrayList<T>();
+        List<T> list = new ArrayList<>();
 
         if (loader != null) {
             try {

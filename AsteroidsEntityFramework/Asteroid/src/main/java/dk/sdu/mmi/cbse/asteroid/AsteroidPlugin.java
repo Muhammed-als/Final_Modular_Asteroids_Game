@@ -19,16 +19,18 @@ public class AsteroidPlugin implements IGamePluginService {
     }
     @Override
     public void start(GameData gameData, World world) {
-
-        for (int i = 1; i <= random.nextInt(2,10); i++) {
+        int min = 2;
+        int max = 10;
+        int randomNum = min + (int)(Math.random() * ((max - min) + 1));
+        for (int i = 1; i <= randomNum; i++) {
             asteroid = createAsteroid(gameData);
             for(Entity entity : world.getEntities()){
                 PositionPart entityPositionPart = entity.getPart(PositionPart.class);
                 PositionPart astroidPositionPart = asteroid.getPart(PositionPart.class);
                 if(((int)astroidPositionPart.getX() < (int)entityPositionPart.getX())||
-                    (int)astroidPositionPart.getX() > (int)entityPositionPart.getX() &&
-                    (int)astroidPositionPart.getY() < (int) entityPositionPart.getY()||
-                    (int) astroidPositionPart.getY() > (int) entityPositionPart.getY()){
+                        (int)astroidPositionPart.getX() > (int)entityPositionPart.getX() &&
+                                (int)astroidPositionPart.getY() < (int) entityPositionPart.getY()||
+                        (int) astroidPositionPart.getY() > (int) entityPositionPart.getY()){
                     world.addEntity(asteroid);
                 }
             }
@@ -51,9 +53,11 @@ public class AsteroidPlugin implements IGamePluginService {
         float acceleration = 200;
         float maxSpeed = 100;
         float rotationSpeed = 5;
+        float minRadians = 3.1415f / 5;
+        float maxRadians = 3.1415f / 2;
+        float radians = minRadians + (maxRadians - minRadians) * random.nextFloat();
         float x = random.nextFloat() * gameData.getDisplayWidth();
         float y = random.nextFloat() * gameData.getDisplayHeight();
-        float radians = random.nextFloat(3.1415f /5,3.1415f / 2);
         Entity asteroids = new Asteroid();
         asteroids.setRadius(30);
         asteroids.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
