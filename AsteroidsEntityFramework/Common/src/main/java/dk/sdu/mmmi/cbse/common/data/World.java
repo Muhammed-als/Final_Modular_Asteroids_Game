@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author jcs
  */
+@SuppressWarnings("unchecked")
 public class World {
 
     private final Map<String, Entity> entityMap = new ConcurrentHashMap<>();

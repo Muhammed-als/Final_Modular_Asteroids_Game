@@ -3,11 +3,12 @@ package dk.sdu.mmmi.cbse.common.util;
 
 import java.util.*;
 
-public class SPILocater {
-    @SuppressWarnings("rawtypes")
-    private static final Map<Class, ServiceLoader> loadermap = new HashMap<>();
+public class SPILocator {
 
-    private SPILocater() {
+    @SuppressWarnings("rawtypes")
+    private static final Map<Class, ServiceLoader> loadermap = new HashMap<Class, ServiceLoader>();
+
+    private SPILocator() {
     }
 
     @SuppressWarnings("unchecked")

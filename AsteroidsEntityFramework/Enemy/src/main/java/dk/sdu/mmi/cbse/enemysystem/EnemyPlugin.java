@@ -13,6 +13,9 @@ import java.util.Random;
 public class EnemyPlugin implements IGamePluginService {
     private Entity enemy;
     private Random random;
+    public EnemyPlugin() {
+
+    }
     @Override
     public void start(GameData gameData, World world) {
         enemy = createEnemyShip(gameData);
@@ -26,17 +29,14 @@ public class EnemyPlugin implements IGamePluginService {
     }
     private Entity createEnemyShip(GameData gameData) {
         random = new Random();
-        float deacceleration = 10;
-        float acceleration = 200;
         float maxSpeed = 300;
-        float rotationSpeed = 5;
         float x = random.nextFloat() * gameData.getDisplayWidth();
-        float y = random.nextFloat() * gameData.getDisplayHeight()-10;
+        float y = random.nextFloat() * (gameData.getDisplayHeight() - 20);
         float radians = 3.1415f / 2;
 
         Entity enemyShip = new Enemy();
         enemyShip.setRadius(8);
-        enemyShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
+        enemyShip.add(new MovingPart(0, 0, maxSpeed, 0));
         enemyShip.add(new PositionPart(x, y, radians));
         enemyShip.add(new LifePart(1));
 

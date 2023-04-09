@@ -8,12 +8,12 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.playersystem.Player;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 
 import java.awt.*;
 
+@SuppressWarnings("unchecked")
 @ServiceProviders(value = {
         @ServiceProvider(service = IEntityProcessingService.class)})
 public class EnemyControlSystem implements IEntityProcessingService {
@@ -22,21 +22,15 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for(Entity enemy: world.getEntities(Enemy.class)){
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
-//            LifePart lifePart = enemy.getPart(LifePart.class);
+            LifePart lifePart = enemy.getPart(LifePart.class);
             float x = positionPart.getX();
             x++;
             positionPart.setX(x);
-//            positionPart.setPosition((float) Math.sqrt(playerPosition.getY()-y), (float) Math.sqrt(playerPosition.getX()-x));
-
-
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
-//            lifePart.process(gameData, enemy);
-
+            lifePart.process(gameData, enemy);
             updateShape(enemy);
         }
-
-
     }
     private void updateShape(Entity entity) {
         float[] shapex = new float[8];
@@ -46,11 +40,11 @@ public class EnemyControlSystem implements IEntityProcessingService {
         float y = positionPart.getY();
         float radians = positionPart.getRadians();
 
-        shapex[0] = (float) (x + Math.cos(radians) * 20);
-        shapey[0] = (float) (y + Math.sin(radians) * 20);
+        shapex[0] = (float) (x + Math.cos(radians));
+        shapey[0] = (float) (y + Math.sin(radians));
 
-        shapex[1] = (float) (x + Math.cos(radians - 0.5f) * 15);
-        shapey[1] = (float) (y + Math.sin(radians - 0.5f) * 15);
+        shapex[1] = (float) (x + Math.cos(radians - 0.5f));
+        shapey[1] = (float) (y + Math.sin(radians - 0.5f));
 
         shapex[2] = (float) (x + Math.cos(radians - 1.5f) * 15);
         shapey[2] = (float) (y + Math.sin(radians - 1.5f) * 15);
@@ -64,12 +58,11 @@ public class EnemyControlSystem implements IEntityProcessingService {
         shapex[5] = (float) (x + Math.cos(radians + 1.5f) * 15);
         shapey[5] = (float) (y + Math.sin(radians + 1.5f) * 15);
 
-        shapex[6] = (float) (x + Math.cos(radians + 0.5f) * 15);
-        shapey[6] = (float) (y + Math.sin(radians + 0.5f) * 15);
+        shapex[6] = (float) (x + Math.cos(radians + 0.5f));
+        shapey[6] = (float) (y + Math.sin(radians + 0.5f));
 
-        shapex[7] = (float) (x + Math.cos(radians) * 20);
-        shapey[7] = (float) (y + Math.sin(radians) * 20);
-
+        shapex[7] = (float) (x + Math.cos(radians));
+        shapey[7] = (float) (y + Math.sin(radians));
 
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);

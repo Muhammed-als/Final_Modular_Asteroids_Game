@@ -13,11 +13,10 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
  * @author Someone
  */
 public class LifePart implements EntityPart {
-    private boolean dead;
+    private boolean dead = false;
     private int life;
     private boolean isHit = false;
-    private int entitySize;
-    private int damageCount = 0;
+
     public LifePart(int life) {
         this.life = life;
     }
@@ -30,7 +29,7 @@ public class LifePart implements EntityPart {
         this.life = life;
     }
 
-    public boolean isIsHit() {
+    public boolean isHit() {
         return isHit;
     }
 
@@ -42,23 +41,6 @@ public class LifePart implements EntityPart {
         return dead;
     }
 
-
-    public int getEntitySize() {
-        return entitySize;
-    }
-
-    public void setEntitySize(int entitySize) {
-        this.entitySize = entitySize;
-    }
-
-    public int getDamageCount() {
-        return damageCount;
-    }
-
-    public void setDamageCount(int damageCount) {
-        this.damageCount = damageCount;
-    }
-
     @Override
     public void process(GameData gameData, Entity entity) {
         if (isHit) {
@@ -68,5 +50,6 @@ public class LifePart implements EntityPart {
         if (life <= 0) {
             dead = true;
         }
+
     }
 }
