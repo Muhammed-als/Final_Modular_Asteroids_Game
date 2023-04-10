@@ -1,8 +1,12 @@
 package dk.sdu.mmmi.cbse.common.data;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
 
 import com.badlogic.gdx.graphics.Color;
+import dk.sdu.mmmi.cbse.common.data.entityparts.EntityType;
+
 import java.awt.*;
 import java.io.Serializable;
 import java.util.Map;
@@ -10,11 +14,14 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 public class Entity implements Serializable {
     private final UUID ID = UUID.randomUUID();
-    private java.awt.Color color;
+    private EntityType type;
+//    private java.awt.Color color;
 
     private float[] shapeX = new float[4];
     private float[] shapeY = new float[4];
     private float radius;
+    private int v,v1,v2,v3;
+    private Color color = Color.WHITE;
 
 
 
@@ -65,6 +72,33 @@ public class Entity implements Serializable {
         this.shapeY = shapeY;
     }
 
+//    public String getColor() {
+//        return v + "," + v1 + "," + v2 + "," + v3;
+//    }
+//
+//    public void setColor(int v1,int v2,int v3,int v4) {
+//        Gdx.gl.glClearColor(v1, v2, v3, v4);
+//        this.v = v1;
+//        this.v1 = v2;
+//        this.v2 = v3;
+//        this.v3 = v4;
+////        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+//    }
 
 
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public EntityType getType() {
+        return type;
+    }
+
+    public void setType(EntityType type) {
+        this.type = type;
+    }
 }

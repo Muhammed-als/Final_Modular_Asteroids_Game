@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.asteroids.TestSplitAsteroid;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.data.entityparts.EntityType;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
@@ -30,7 +31,6 @@ public class AsteroidProcessor implements IEntityProcessingService {
                 world.removeEntity(entity);
             }
             if (lifePart.isHit()) {
-                System.out.println("Asteroid hit");
                 Entity astroid1 = new Asteroid();
                 Entity asteroid2 = new Asteroid();
                 float speed = movingPart.getMaxSpeed();
@@ -39,22 +39,20 @@ public class AsteroidProcessor implements IEntityProcessingService {
                 float speed2 = speed * 0.5f;
                 astroid1.setRadius(entity.getRadius() / 2);
                 asteroid2.setRadius(entity.getRadius() / 2);
-                astroid1.add(new MovingPart(movingPart.getDeceleration(), movingPart.getAcceleration(), speed1, 0));
-                asteroid2.add(new MovingPart(movingPart.getDeceleration(), movingPart.getAcceleration(), speed2, 0));
+                astroid1.add(new MovingPart(0, movingPart.getAcceleration(), speed1, 0));
+                asteroid2.add(new MovingPart(0, movingPart.getAcceleration(), speed2, 0));
                 astroid1.add(new PositionPart(x, y, radians));
                 asteroid2.add(new PositionPart(x, y, radians));
                 astroid1.add(new LifePart(lifePart.getLife()));
                 asteroid2.add(new LifePart(lifePart.getLife()));
+                astroid1.setType(EntityType.ASTEROID);
+                asteroid2.setType(EntityType.ASTEROID);
                 positionPart.setPosition(x, y);
-                movingPart.process(gameData, astroid1);
-                positionPart.process(gameData, astroid1);
-                movingPart.process(gameData, asteroid2);
-                positionPart.process(gameData, asteroid2);
+
                 world.addEntity(astroid1);
                 world.addEntity(asteroid2);
                 world.removeEntity(entity);
-                updateShape(astroid1);
-                updateShape(asteroid2);
+
             }
                 float radians = positionPart.getRadians();
                 x += Math.cos(radians) * movingPart.getMaxSpeed() * gameData.getDelta();
@@ -68,7 +66,6 @@ public class AsteroidProcessor implements IEntityProcessingService {
 
 
     private void updateShape(Entity entity) {
-        System.out.println(entity.getRadius());
         float[] shapex = new float[6];
         float[] shapey = new float[6];
         PositionPart positionPart = entity.getPart(PositionPart.class);

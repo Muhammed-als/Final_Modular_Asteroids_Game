@@ -1,6 +1,8 @@
 package dk.sdu.mmmi.cbse.collisionsystem;
 
 
+import dk.sdu.mmi.cbse.common.bullet.Bullet;
+import dk.sdu.mmmi.cbse.common.asteroids.Asteroid;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -17,9 +19,9 @@ public class CollisionDetector implements IPostEntityProcessingService {
             for (Entity collisionDetection : world.getEntities()) {
                 // get life parts on all entities
                 LifePart entityLife = entity.getPart(LifePart.class);
-
+                LifePart collisionDetectionLife = collisionDetection.getPart(LifePart.class);
                 // if the two entities are identical, skip the iteration
-                if (entity.getID().equals(collisionDetection.getID())) {
+                if (entity.getType().equals(collisionDetection.getType())) {
                     continue;
 
                     // remove entities with zero in expiration
@@ -28,14 +30,19 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 // CollisionDetection
                 if (this.collides(entity, collisionDetection) ) {
                     // if entity has been hit, and should have its life reduced
-                    if (entityLife.getLife() > 0) {
+                    if (!entityLife.isHit() && entityLife.getLife() > 0) {
                         entityLife.setLife(entityLife.getLife() - 1);
                         entityLife.setIsHit(true);
-                        // if entity is out of life - remove
-                        if (entityLife.getLife() <= 0) {
-                            world.removeEntity(entity);
-                        }
+
                     }
+                    // if entity is out of life - remove
+//                    if (entityLife.getLife()<=0) {
+//                        world.removeEntity(entity);
+//                    }
+                    if (entityLife.isDead()) {
+                        world.removeEntity(entity);
+                    }
+
                 }
             }
         }
@@ -44,13 +51,10 @@ public class CollisionDetector implements IPostEntityProcessingService {
     public Boolean collides(Entity entity, Entity entity2) {
         PositionPart entMov = entity.getPart(PositionPart.class);
         PositionPart entMov2 = entity2.getPart(PositionPart.class);
-        float dx = (float) entMov.getX() - (float) entMov2.getX();
-        float dy = (float) entMov.getY() - (float) entMov2.getY();
+        float dx =  entMov.getX() - entMov2.getX();
+        float dy =  entMov.getY() - entMov2.getY();
         float distance = (float) Math.sqrt(dx * dx + dy * dy);
-        if (distance < (entity.getRadius() + entity2.getRadius())) {
-            return true;
-        }
-        return false;
+        return distance < (entity.getRadius() + entity2.getRadius());
     }
 
 }

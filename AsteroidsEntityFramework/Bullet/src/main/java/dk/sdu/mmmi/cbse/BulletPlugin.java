@@ -14,6 +14,7 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 //import dk.sdu.mmmi.cbse.playersystem.Player;
+@SuppressWarnings("unchecked")
 public class BulletPlugin implements IGamePluginService {
 
     private Entity bullet;
@@ -25,11 +26,8 @@ public class BulletPlugin implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-        for (Entity e : world.getEntities()) {
-            if (e.getClass() == Bullet.class) {
+        for (Entity e : world.getEntities(Bullet.class)) {
                 world.removeEntity(e);
-            }
         }
     }
-
 }
