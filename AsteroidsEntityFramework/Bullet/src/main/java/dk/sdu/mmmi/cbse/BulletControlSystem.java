@@ -67,7 +67,7 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
         bullet.setType(EntityType.BULLET);
         bullet.setShapeX(new float[2]);
         bullet.setShapeY(new float[2]);
-        bullet.setColor(Color.GREEN);
+//        bullet.setColor(Color.GREEN);
         return bullet;
     }
 

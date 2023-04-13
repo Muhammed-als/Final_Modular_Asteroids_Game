@@ -1,8 +1,6 @@
 package dk.sdu.mmi.cbse.asteroid;
 
 import dk.sdu.mmmi.cbse.common.asteroids.Asteroid;
-import dk.sdu.mmmi.cbse.common.asteroids.IAsteroidSplitter;
-import dk.sdu.mmmi.cbse.common.asteroids.TestSplitAsteroid;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -16,8 +14,6 @@ import java.util.Random;
 
 @SuppressWarnings("unchecked")
 public class AsteroidProcessor implements IEntityProcessingService {
-//    private IAsteroidSplitter asteroidSplitter = new AsteroidSplitterImpl();
-
     @Override
     public void process(GameData gameData, World world) {
         for (Entity entity : world.getEntities(Asteroid.class)) {

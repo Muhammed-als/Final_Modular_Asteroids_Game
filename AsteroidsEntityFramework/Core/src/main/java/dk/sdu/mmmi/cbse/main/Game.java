@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-//import dk.sdu.mmi.cbse.collisionSystem.*;
-import dk.sdu.mmi.cbse.enemysystem.Enemy;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -16,13 +14,8 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.util.SPILocator;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
-//import dk.sdu.mmi.cbse.asteroid.AsteroidControlSystem;
-//import main.java.dk.sdu.mmi.cbse.bullet.BulletControlSystem;
-//import main.java.dk.sdu.mmi.cbse.bullet.BulletPlugin;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class Game
         implements ApplicationListener {
@@ -86,7 +79,8 @@ public class Game
     private void draw() {
         for (Entity entity : world.getEntities()) {
 
-            sr.setColor(entity.getColor());
+//            sr.setColor(entity.getColor());
+            sr.setColor(Color.WHITE);
 
             sr.begin(ShapeRenderer.ShapeType.Line);
 
