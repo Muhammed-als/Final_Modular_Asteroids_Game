@@ -9,7 +9,6 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 
-import java.awt.*;
 
 @SuppressWarnings("unchecked")
 public class EnemyControlSystem implements IEntityProcessingService {

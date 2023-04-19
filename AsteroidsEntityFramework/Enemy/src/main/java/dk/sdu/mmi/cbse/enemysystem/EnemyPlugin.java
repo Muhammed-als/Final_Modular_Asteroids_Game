@@ -1,6 +1,5 @@
 package dk.sdu.mmi.cbse.enemysystem;
 
-import com.badlogic.gdx.graphics.Color;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;

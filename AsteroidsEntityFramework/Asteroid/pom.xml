@@ -9,6 +9,13 @@
     <artifactId>Asteroid</artifactId>
     <packaging>jar</packaging>
     <name> Asteroid </name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <libGDX.version>1.11.0</libGDX.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -20,5 +27,8 @@
             <artifactId>CommonAsteroids</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- Update the version of the Asteroid module to the latest version -->
+
     </dependencies>
+
 </project>

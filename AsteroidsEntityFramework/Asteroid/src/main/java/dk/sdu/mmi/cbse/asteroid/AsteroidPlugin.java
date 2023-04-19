@@ -12,7 +12,6 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 
 import java.util.Random;
 
-import static com.badlogic.gdx.math.MathUtils.random;
 
 @SuppressWarnings("unchecked")
 public class AsteroidPlugin implements IGamePluginService {
@@ -38,7 +37,7 @@ public class AsteroidPlugin implements IGamePluginService {
     }
 
     private Entity createAsteroid(GameData gameData) {
-        random = new Random();
+        Random random = new Random();
         float maxSpeed = 50;
         float minRadians = 3.1415f / 5;
         float maxRadians = 3.1415f;
