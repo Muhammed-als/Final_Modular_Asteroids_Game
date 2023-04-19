@@ -1,5 +1,6 @@
 package dk.sdu.mmi.cbse.enemysystem;
 
+import com.badlogic.gdx.graphics.Color;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -40,7 +41,7 @@ public class EnemyPlugin implements IGamePluginService {
         enemyShip.add(new MovingPart(0, 0, maxSpeed, 0));
         enemyShip.add(new PositionPart(x, y, radians));
         enemyShip.add(new LifePart(1));
-//        enemyShip.setColor(Color.RED);
+        enemyShip.setColor(Color.RED);
         enemyShip.setType(EntityType.ENEMY);
 
         return enemyShip;

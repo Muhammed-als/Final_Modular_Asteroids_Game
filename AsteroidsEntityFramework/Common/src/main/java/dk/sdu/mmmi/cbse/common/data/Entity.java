@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.common.data;
 
+import com.badlogic.gdx.graphics.Color;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
 
 //import com.badlogic.gdx.graphics.Color;
@@ -17,7 +18,8 @@ public class Entity implements Serializable {
     private float[] shapeY = new float[4];
     private float radius;
     private int v,v1,v2,v3;
-//    private Color color = Color.WHITE;
+    private Color color = Color.WHITE;
+//    private
 
 
 
@@ -69,13 +71,13 @@ public class Entity implements Serializable {
     }
 
 
-//    public Color getColor() {
-//        return color;
-//    }
+    public Color getColor() {
+        return color;
+    }
 
-//    public void setColor(Color color) {
-//        this.color = color;
-//    }
+    public void setColor(Color color) {
+        this.color = color;
+    }
 
     public EntityType getType() {
         return type;

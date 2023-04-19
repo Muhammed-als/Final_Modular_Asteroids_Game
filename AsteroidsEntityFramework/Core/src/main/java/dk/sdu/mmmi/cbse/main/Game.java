@@ -79,8 +79,7 @@ public class Game
     private void draw() {
         for (Entity entity : world.getEntities()) {
 
-//            sr.setColor(entity.getColor());
-            sr.setColor(Color.WHITE);
+            sr.setColor(entity.getColor());
 
             sr.begin(ShapeRenderer.ShapeType.Line);
 

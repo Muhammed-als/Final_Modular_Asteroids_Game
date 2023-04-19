@@ -1,6 +1,7 @@
 package dk.sdu.mmmi.cbse;
 //
 //import dk.sdu.mmi.cbse;
+import com.badlogic.gdx.graphics.Color;
 import dk.sdu.mmi.cbse.common.bullet.Bullet;
 import dk.sdu.mmi.cbse.common.bullet.BulletSPI;
 import dk.sdu.mmi.cbse.common.bullet.BulletSPI;
@@ -64,7 +65,7 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
         bullet.setType(EntityType.BULLET);
         bullet.setShapeX(new float[2]);
         bullet.setShapeY(new float[2]);
-//        bullet.setColor(Color.GREEN);
+        bullet.setColor(Color.GREEN);
         return bullet;
     }
 
