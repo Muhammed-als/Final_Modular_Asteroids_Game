@@ -9,20 +9,30 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.util.SPILocator;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
+import dk.sdu.mmmi.cbse.services.PluginService;
+import dk.sdu.mmmi.cbse.services.PostProcessService;
+import dk.sdu.mmmi.cbse.services.ProcessService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
+
 @Component("Game")
 public class Game implements ApplicationListener {
+    private AnnotationConfigApplicationContext context;
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
     private final GameData gameData = new GameData();
     private World world = new World();
 
+    public Game(){
+        context = new AnnotationConfigApplicationContext();
+        context.scan("dk.sdu.mmmi.cbse.services");
+        context.refresh();
+    }
     @Override
     public void create() {
 
@@ -40,9 +50,7 @@ public class Game implements ApplicationListener {
         );
 
         // Lookup all Game Plugins using ServiceLoader
-        for (IGamePluginService iGamePlugin : getPluginServices()) {
-            iGamePlugin.start(gameData, world);
-        }
+        context.getBean("PluginService", PluginService.class).startPlugin(gameData, world);
     }
 
     @Override
@@ -63,12 +71,8 @@ public class Game implements ApplicationListener {
 
     private void update() {
         // Update
-        for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
-            entityProcessorService.process(gameData, world);
-        }
-        for (IPostEntityProcessingService postEntityProcessorService : getPostEntityProcessingServices()) {
-            postEntityProcessorService.process(gameData, world);
-        }
+        context.getBean("ProcessService", ProcessService.class).processServices(gameData, world);
+        context.getBean("PostProcessService", PostProcessService.class).processServices(gameData, world);
     }
 
     private void draw() {
@@ -106,18 +110,6 @@ public class Game implements ApplicationListener {
 
     @Override
     public void dispose() {
-    }
-
-    private Collection<? extends IGamePluginService> getPluginServices() {
-        return SPILocator.locateAll(IGamePluginService.class);
-    }
-
-    private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {
-        return SPILocator.locateAll(IEntityProcessingService.class);
-    }
-
-    private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
-        return SPILocator.locateAll(IPostEntityProcessingService.class);
     }
 }
 

@@ -11,4 +11,7 @@ module Core {
     uses IGamePluginService;
     uses IEntityProcessingService;
     uses IPostEntityProcessingService;
+
+    exports dk.sdu.mmmi.cbse.services;
+    exports dk.sdu.mmmi.cbse.main;
 }
