@@ -1,5 +1,6 @@
 module Collision {
     requires Common;
+    opens dk.sdu.mmmi.cbse.collisionsystem;
 
     uses dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 
