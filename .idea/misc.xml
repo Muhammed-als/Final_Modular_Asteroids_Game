@@ -15,6 +15,28 @@
         <option value="$PROJECT_DIR$/Final_Modular_Asteroids_Game/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/AsteroidsJava9/Asteroid/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsJava9/Collision/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsJava9/Common/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsJava9/Core/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsJava9/Player/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/Asteroid/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/Bullet/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/Collision/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/Common/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/CommonAsteroids/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/CommonBullet/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/Core/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/Enemy/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsNetbeansModules/Player/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsServiceLoader/Asteroid/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsServiceLoader/Collision/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsServiceLoader/Core/pom.xml" />
+        <option value="$PROJECT_DIR$/AsteroidsServiceLoader/Player/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
