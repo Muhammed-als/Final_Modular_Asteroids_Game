@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="AgeCalculatorSpring" target="1.8" />
+      <module name="AgeCalculatorSpringClient" target="1.8" />
+      <module name="Asteroid" target="17" />
+      <module name="asteroids.java9" target="9" />
+      <module name="asteroids.serviceloader" target="1.8" />
+      <module name="AsteroidsLibGDX" target="11" />
+      <module name="AsteroidsNetbeansModules-app" target="1.8" />
+      <module name="AsteroidsNetbeansModules-branding" target="1.8" />
+      <module name="AsteroidsNetbeansModules-parent" target="1.5" />
+      <module name="Bullet" target="17" />
+      <module name="Collision" target="17" />
+      <module name="Common" target="17" />
+      <module name="common" target="1.8" />
+      <module name="CommonAsteroids" target="17" />
+      <module name="CommonBullet" target="17" />
+      <module name="CommonEnemy" target="1.8" />
+      <module name="compiled-bundle-settings" target="1.8" />
+      <module name="Core" target="17" />
+      <module name="DictionaryDemo" target="1.8" />
+      <module name="DictionaryServiceProvider" target="1.8" />
+      <module name="Enemy" target="17" />
+      <module name="ExtendedDictionary" target="1.8" />
+      <module name="Final_Modular_Asteroids_Game" target="17" />
+      <module name="GeneralDictionary" target="1.8" />
+      <module name="HelloWorld" target="1.8" />
+      <module name="NBRuntimeExample12-app" target="1.8" />
+      <module name="NBRuntimeExample12-branding" target="1.8" />
+      <module name="NBRuntimeExample12-parent" target="1.5" />
+      <module name="OSGiAsteroids" target="1.8" />
+      <module name="OSGiAsteroidSplitter" target="1.8" />
+      <module name="OSGiCommon" target="1.8" />
+      <module name="OSGiCommonAsteroids" target="1.8" />
+      <module name="OSGiCommonBullet" target="1.8" />
+      <module name="OSGiCommonEnemy" target="1.8" />
+      <module name="OSGiCore" target="1.8" />
+      <module name="OSGiEnemy" target="1.8" />
+      <module name="OSGiLaser" target="1.8" />
+      <module name="OSGiLibGDX" target="1.8" />
+      <module name="PaxAteroids" target="1.8" />
+      <module name="Player" target="17" />
+      <module name="provision" target="1.8" />
+      <module name="ServiceLoaderExample" target="1.5" />
+      <module name="shared-plugin-settings" target="1.8" />
+      <module name="SilentUpdate" target="1.8" />
+      <module name="SpringAgeCalculator" target="1.5" />
+      <module name="wrapper-bundle-settings" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
