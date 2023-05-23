@@ -12,7 +12,6 @@
         <module>Core</module>
         <module>Common</module>
         <module>Bullet</module>
-        <module>CommonAsteroids</module>
         <module>CommonBullet</module>
         <module>Enemy</module>
         <module>Player</module>

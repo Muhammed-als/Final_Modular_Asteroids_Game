@@ -1,8 +1,8 @@
 module CommonBullet {
-    exports dk.sdu.mmi.cbse.common.bullet;
+    exports dk.sdu.mmmi.cbse.commonBullet;
     requires Common;
-    uses dk.sdu.mmi.cbse.common.bullet.Bullet;
-    uses dk.sdu.mmi.cbse.common.bullet.BulletSPI;
+    uses dk.sdu.mmmi.cbse.commonBullet.Bullet;
+    uses dk.sdu.mmmi.cbse.commonBullet.BulletSPI;
 
 
 }

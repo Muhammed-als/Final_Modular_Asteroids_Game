@@ -1,6 +1,5 @@
 module Asteroid {
     requires Common;
-    requires CommonAsteroids;
     uses dk.sdu.mmmi.cbse.common.services.IGamePluginService;
     uses dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 

@@ -2,15 +2,13 @@ package dk.sdu.mmmi.cbse;
 //
 //import dk.sdu.mmi.cbse;
 import com.badlogic.gdx.graphics.Color;
-import dk.sdu.mmi.cbse.common.bullet.Bullet;
-import dk.sdu.mmi.cbse.common.bullet.BulletSPI;
-import dk.sdu.mmi.cbse.common.bullet.BulletSPI;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-//import dk.sdu.mmmi.cbse.playersystem.Player;
+import dk.sdu.mmmi.cbse.commonBullet.Bullet;
+import dk.sdu.mmmi.cbse.commonBullet.BulletSPI;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
