@@ -21,7 +21,7 @@ void process(GameData gameData, World world);
 <td><Strong>Parameters</strong></td>
 <td>
 
-`GameData gameData` - The game data
+`GameData gameData` - The game data of the game
 
 `World world` - The world of the game
 
@@ -38,7 +38,7 @@ The ProcessingService has completed the main processing load in the game.
 <tr>
 <td><Strong>PostConditions</strong></td>
 <td>
-The system has been post processed in the game.
+The system has been post processed after the main processing has completed.
 
 
 </td>
