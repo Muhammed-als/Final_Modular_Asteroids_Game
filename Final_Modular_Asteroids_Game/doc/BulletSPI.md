@@ -15,8 +15,9 @@ Entity createBullet(Entity e, GameData gameData);
 </tr>
 <tr>
 <td><Strong>Description</strong></td>
-<td>It is the main processing system, that updates the entities' gameData continuously.
-The method overrides when implementing the IEntityProcessingService interface.  </td>
+<td>
+Creates a bullet for the entity. The method overrides when implementing the BulletSPI interface. 
+</td>
 </tr>
 <tr>
 <td><Strong>Parameters</strong></td>
