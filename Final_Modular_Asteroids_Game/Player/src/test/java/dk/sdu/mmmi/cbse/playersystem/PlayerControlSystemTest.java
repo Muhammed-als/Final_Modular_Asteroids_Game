@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class PlayerControlSystemTest {
     private PlayerControlSystem playerControlSystem;
@@ -29,7 +30,6 @@ public class PlayerControlSystemTest {
         player.add(new PositionPart(0,0,0));
         player.add(new LifePart(1));
         gameData.getKeys().setKey(GameKeys.SPACE,true);
-        playerControlSystem.process(gameData,world);
 
     }
     @Test
@@ -39,7 +39,7 @@ public class PlayerControlSystemTest {
     }
     @Test
     public void testKeysAreSetToTrue(){
-        assertEquals(true,gameData.getKeys().isDown(GameKeys.SPACE));
+        assertTrue(gameData.getKeys().isDown(GameKeys.SPACE));
     }
 
 

@@ -1,0 +1,62 @@
+@startuml
+skinparam style strictuml
+participant Core
+participant AsteroidPlugin
+participant AsteroidProcessor
+participant Asteroid
+
+participant World
+participant Entity
+participant LifePart
+
+Core -> AsteroidPlugin: start()
+activate AsteroidPlugin
+loop randomNum times
+    AsteroidPlugin -> AsteroidPlugin: createAsteroids()
+    activate AsteroidPlugin
+    AsteroidPlugin -> World: addEntity(asteroid)
+    World --> AsteroidPlugin: asteroid added
+    deactivate AsteroidPlugin
+end
+AsteroidPlugin --> Core: void()
+deactivate AsteroidPlugin
+Core -> AsteroidProcessor: process()
+activate AsteroidProcessor
+AsteroidProcessor -> Entity: getPart(LifePart)
+activate Entity
+Entity --> AsteroidProcessor: lifePart
+deactivate Entity
+AsteroidProcessor -> Entity: getPart(PositionPart)
+activate Entity
+Entity --> AsteroidProcessor: positionPart
+deactivate Entity
+AsteroidProcessor -> Entity: getPart(MovingPart)
+activate Entity
+Entity --> AsteroidProcessor: movingPart
+deactivate Entity
+AsteroidProcessor -> LifePart: isHit()
+activate LifePart
+LifePart --> AsteroidProcessor: isHit
+deactivate LifePart
+alt isHit == true
+    AsteroidProcessor -> Asteroid: create two new asteroids
+    activate Asteroid
+    Asteroid -> AsteroidProcessor: asteroid1, asteroid2
+    deactivate Asteroid
+    AsteroidProcessor -> World: addEntity(asteroids)
+    World --> AsteroidProcessor: asteroids added
+    note left
+        Add the two new asteroids
+    end note
+    deactivate Asteroid
+    AsteroidProcessor -> World: removeEntity(asteroid)
+    note left
+        Remove the original asteroid
+    end note
+    World --> AsteroidProcessor: asteroid removed
+    deactivate Asteroid
+end
+AsteroidProcessor --> Core: void()
+deactivate AsteroidProcessor
+
+@enduml
