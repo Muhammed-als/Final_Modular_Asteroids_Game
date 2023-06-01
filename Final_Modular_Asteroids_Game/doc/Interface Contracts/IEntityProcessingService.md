@@ -22,7 +22,7 @@ The method overrides when implementing the IEntityProcessingService interface.  
 <td><Strong>Parameters</strong></td>
 <td>
 
-`GameData gameData` - The game data
+`GameData gameData` - The gameData of the game
 
 `World world` - The world of the game
 
@@ -31,7 +31,7 @@ The method overrides when implementing the IEntityProcessingService interface.  
 <tr>
 <td><Strong>PreConditions</strong></td>
 <td>
-To be able to process the system, a complete game loop has been completed, which means that the loop should contains all the entities processing services, so that the whole system will be processed
+The gameData and world has been initialized. To be able to process the system, a complete game loop has been completed, which means that the loop should contains all the entities processing services, so that the whole system will be processed
 
 
 </td>

@@ -1,0 +1,67 @@
+@startuml
+skinparam style strictuml
+participant Core
+participant PlayerPlugin
+participant PlayerControlSystem
+participant Player
+participant World
+participant Entity
+
+Core -> PlayerPlugin: start()
+activate PlayerPlugin
+    PlayerPlugin -> PlayerPlugin: createPlayerShip()
+    activate PlayerPlugin
+    PlayerPlugin -> World: addEntity(PlayerShip)
+    World --> PlayerPlugin: PlayerShip added
+    deactivate PlayerPlugin
+PlayerPlugin --> Core: void()
+deactivate PlayerPlugin
+Core -> PlayerControlSystem: process()
+activate PlayerControlSystem
+PlayerControlSystem -> Entity: getPart(LifePart)
+activate Entity
+Entity --> PlayerControlSystem: lifePart
+deactivate Entity
+PlayerControlSystem -> Entity: getPart(PositionPart)
+activate Entity
+Entity --> PlayerControlSystem: positionPart
+deactivate Entity
+PlayerControlSystem -> Entity: getPart(MovingPart)
+activate Entity
+Entity --> PlayerControlSystem: movingPart
+deactivate Entity
+PlayerControlSystem -> MovingPart: setLeft(Left)
+activate MovingPart
+MovingPart --> PlayerControlSystem:
+deactivate MovingPart
+PlayerControlSystem -> MovingPart: setRight(Right)
+activate MovingPart
+MovingPart --> PlayerControlSystem:
+deactivate MovingPart
+PlayerControlSystem -> MovingPart: setUp(Up)
+activate MovingPart
+MovingPart --> PlayerControlSystem:
+deactivate MovingPart
+
+PlayerControlSystem -> PlayerControlSystem: updateShape()
+activate PlayerControlSystem
+deactivate PlayerControlSystem
+PlayerControlSystem --> Core: void()
+deactivate PlayerControlSystem
+Core -> MovingPart: process()
+activate MovingPart
+alt Left
+    MovingPart -> MovingPart: rotateLeft()
+else Right
+    MovingPart -> MovingPart: rotateRight()
+else Up
+    MovingPart -> MovingPart: moveUp()
+end
+MovingPart --> Core: void()
+deactivate MovingPart
+
+
+
+
+
+@enduml

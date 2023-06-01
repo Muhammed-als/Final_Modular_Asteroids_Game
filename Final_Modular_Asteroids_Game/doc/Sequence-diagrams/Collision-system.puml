@@ -1,0 +1,84 @@
+@startuml
+skinparam style strictuml
+participant Core
+participant CollisionDetector
+participant LifePart
+
+Core -> CollisionDetector : process()
+loop getAllEntities()
+CollisionDetector -> LifePart : getLifePart()
+activate LifePart
+LifePart --> CollisionDetector : LifePart
+deactivate LifePart
+alt type of entities are not the same
+
+
+end
+@enduml
+
+@startuml
+skinparam style strictuml
+participant Core
+participant CollisionDetector
+participant Entity
+participant LifePart
+participant PositionPart
+participant World
+participant GameData
+Core -> CollisionDetector : process()
+activate CollisionDetector
+CollisionDetector -> World: getEntities()
+activate World
+World --> CollisionDetector: entities
+deactivate World
+
+loop for each entity
+    CollisionDetector -> World: getEntities()
+    activate World
+    World --> CollisionDetector: entities
+    deactivate World
+
+    loop for each collisionDetection
+        CollisionDetector -> Entity: getPart(LifePart)
+        activate Entity
+        Entity --> CollisionDetector: lifePart
+        deactivate Entity
+
+        CollisionDetector -> Entity: getEntityType()
+        activate Entity
+        Entity --> CollisionDetector: entityType
+        deactivate Entity
+
+        alt type is not equal
+            CollisionDetector -> CollisionDetector: collides(entity, collisionDetection)
+            activate CollisionDetector
+            CollisionDetector -> Entity: getPart(PositionPart.class)
+            activate Entity
+            Entity --> CollisionDetector: PositionPart
+            deactivate Entity
+        end
+
+        alt collision detected
+                CollisionDetector -> LifePart: setLife(-1)
+                activate LifePart
+                LifePart --> CollisionDetector: life refuced
+                deactivate LifePart
+
+                CollisionDetector -> LifePart: setIsHit(true)
+                activate LifePart
+                LifePart --> CollisionDetector: isHit
+                deactivate LifePart
+        deactivate CollisionDetector
+            alt entity's life == 0
+                CollisionDetector -> World: removeEntity(entity)
+                activate World
+                World --> CollisionDetector: entity removed
+                deactivate World
+            end
+        end
+
+        end
+    end
+CollisionDetector --> Core: void()
+deactivate CollisionDetector
+@enduml

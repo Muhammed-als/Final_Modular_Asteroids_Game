@@ -18,7 +18,6 @@ import static org.mockito.Mockito.*;
 
 
 public class CollisionDetectorTest {
-
     private CollisionDetector collisionDetector;
     private GameData gameData;
     private World world;

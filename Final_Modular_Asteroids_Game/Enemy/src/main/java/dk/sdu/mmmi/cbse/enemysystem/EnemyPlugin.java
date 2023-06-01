@@ -1,4 +1,4 @@
-package dk.sdu.mmi.cbse.enemysystem;
+package dk.sdu.mmmi.cbse.enemysystem;
 
 import com.badlogic.gdx.graphics.Color;
 import dk.sdu.mmmi.cbse.common.data.Entity;

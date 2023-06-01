@@ -1,0 +1,76 @@
+@startuml
+component Common{
+package src\main\java\dk\sdu\mmmi\cbse\common\data{
+class Entity{
+- ID: UUID
+- type: EntityType
+- shapeX: float[]
+- shapeY: float[]
+- radians: float
+- color: Color
+- parts: Map<Class<? extends EntityPart>, EntityPart>
++ add(entityPart:EntityPart): void
++ remove(entityPart:EntityPart): void
++ getPart(partClass:Class<T>): T
++ setRadius(radius:float): void
++ getRadius(): float
++ getID(): UUID
++ getShapeX(): float[]
++ setShapeX(shapeX:float[]): void
++ getShapeY(): float[]
++ setShapeY(shapeY:float[]): void
++ getColor(): Color
++ setColor(color:Color): void
++ getType(): EntityType
++ setType(type:EntityType): void
+}
+class GameData{
+- delta: float
+- displayWidth: int
+- displayHeight: int
+- keys: GameKeys
+- events: List<Event>
++ addEvent(e:Event): void
++ removeEvent(e:Event): void
++ getEvents(): List<Event>
++ getKeys(): GameKeys
++ getDelta(): float
++ setDelta(delta:float): void
++ getDisplayWidth(): int
++ setDisplayWidth(displayWidth:int): void
++ getDisplayHeight(): int
++ setDisplayHeight(displayHeight:int): void
+}
+}
+package src\main\java\dk\sdu\mmmi\cbse\common\services{
+interface IGamePluginService{
++ start(gameData:GameData, world:World): void
++ stop(gameData:GameData, world:World): void
+}
+interface IEntityProcessingService{
++ process(gameData:GameData, world:World): void
+}
+}
+}
+component Asteroid{
+package src\main\java\dk\sdu\mmmi\cbse\asteroid{
+    class Asteroid{
+    }
+    Asteroid --|> Entity
+    class AsteroidPlugin{
+     - createAsteroid(gameData:GameData): Entity
+    }
+    class AsteroidProcessor{
+    - updateShape(entity:Entity): void
+    }
+
+  }
+}
+
+AsteroidPlugin ..|> IGamePluginService
+AsteroidProcessor ..|> IEntityProcessingService
+
+
+
+
+@enduml

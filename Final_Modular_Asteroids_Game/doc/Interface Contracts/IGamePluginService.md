@@ -16,13 +16,13 @@ void stop(GameData gameData, World world)
 </tr>
 <tr>
 <td><Strong>Description</strong></td>
-<td> This is called when Start and Stop the game plugin, where start means add the entity to the world of game and stop means remove the entity from the world of game </td>
+<td> This is called to Start and Stop the game plugin, where start means add the entity to the world of game and stop means remove the entity from the world of game </td>
 </tr>
 <tr>
 <td><Strong>Parameters</strong></td>
 <td>
 
-`GameData gameData` - The game data
+`GameData gameData` - The gameData of the game
 
 `World world` - The world of the game
 
@@ -32,8 +32,8 @@ void stop(GameData gameData, World world)
 <td><Strong>PreConditions</strong></td>
 <td>
 <h3>Start</h3>  
-
 The game has started and the entity plugin has not yet been started/ added to the game
+
 
 <h3>Stop</h3>
 

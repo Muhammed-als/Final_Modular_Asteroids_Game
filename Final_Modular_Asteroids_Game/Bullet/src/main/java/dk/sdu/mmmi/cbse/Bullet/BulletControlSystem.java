@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse;
+package dk.sdu.mmmi.cbse.Bullet;
 //
 //import dk.sdu.mmi.cbse;
 import com.badlogic.gdx.graphics.Color;
